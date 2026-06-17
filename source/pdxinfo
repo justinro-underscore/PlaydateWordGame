@@ -1,0 +1,6 @@
+name=WordGame
+author=Justin Roderman
+description=A completely original game completely new thought up of by me
+bundleID=io.thelostrats.wordgame
+version=0.0.1
+buildNumber=1
