@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Word Game Level Creator</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+		<link href="styles.css" rel="stylesheet">
+		<script type="text/javascript" src="scripts/wordList.js"></script>
+		<script type="text/javascript" src="scripts/levelGenerator.js"></script>
+		<script type="text/javascript" src="scripts/index.js"></script>
+	</head>
+	<body>
+		<h1>Word Game Level Editor</h1>
+		<div class="level-creator-container">
+			<div id="puzzle-config" class="column">
+				<p><b>Enter word to level</b></p>
+				<input id="word-to-level"></input>
+				<button onclick="getWords()">GET WORDS</button>
+				<div id="possible-words-container">
+					<div style="padding: 4px">Waiting for words...</div>
+				</div>
+				<p id="chosen-words">Chosen words: </p>
+				<button onclick="generatePuzzles()">GENERATE</button><br/>
+				<input style="margin-top: 10px" type="checkbox" id="allowDuplicateShapes" name="allowDuplicateShapes"><label for="allowDuplicateShapes"> Allow Similarly Shaped Puzzles</label>
+			</div>
+			<div id="generated-puzzles" class="column">
+			</div>
+			<div id="puzzle-display-container" class="column">
+				<div id="puzzle-display">
+				</div>
+				<p id="puzzle-display-info"></p>
+				<button id="puzzle-export" onclick="exportCurrPuzzle()">EXPORT</button>
+			</div>
+		</div>
+	</body>
+
+	<div id="popup-background" class="popup-background-hidden" onclick="closePopup()">
+		<div id="export-popup" style="display: none" onclick="event.stopPropagation()">
+			<div class="popup-content">
+				<h1>Level Export</h1>
+				<code id="puzzle-export-str"></code><br>
+				<button id="copy-exported-puzzle" onclick="copyExportedPuzzle()">COPY TO CLIPBOARD</button>
+				<button class="popup-x-button" onclick="closePopup()">X</button>
+			</div>
+		</div>
+	</div>
+</html>
